@@ -6,7 +6,11 @@
     <title>Настройки</title>
 </head>
 <body>
-    <h1>Страница настроек</h1>
-    <p>Добавьте здесь содержимое для страницы настроек.</p>
+    <h1>Настройки</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить изменения</button>
+    </form>
 </body>
 </html>

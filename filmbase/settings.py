@@ -138,3 +138,5 @@ LOGIN_REDIRECT_URL = 'films:home'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+LOGIN_URL = '/auth/login/'
