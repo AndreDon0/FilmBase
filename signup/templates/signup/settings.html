@@ -1,0 +1,14 @@
+{% extends 'signup/base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+  <h1>Настройки профиля</h1>
+  <form method="post">
+    {% csrf_token %}
+    <h2>Пользователь</h2>
+    {% bootstrap_form user_form layout='floating' %}
+    <h2>Профиль</h2>
+    {% bootstrap_form profile_form layout='floating' %}
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+  </form>
+{% endblock %}

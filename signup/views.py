@@ -1,7 +1,8 @@
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
-
+from django.contrib.auth.decorators import login_required
+from .forms import UserEditForm, ProfileEditForm
 
 def signup(request):
     if request.method == 'POST':
@@ -16,3 +17,22 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, "signup/signup.html", {'form': form})
+
+
+@login_required
+def edit(request):
+    profile = request.user.profile  # Профиль должен существовать, thanks to signals
+    if request.method == 'POST':
+        user_form = UserEditForm(instance=request.user, data=request.POST)
+        profile_form = ProfileEditForm(instance=profile, data=request.POST)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            return redirect('signup:settings')  # Перенаправляем на ту же страницу
+    else:
+        user_form = UserEditForm(instance=request.user)
+        profile_form = ProfileEditForm(instance=profile)
+    return render(request, 'signup/settings.html', {
+        'user_form': user_form,
+        'profile_form': profile_form
+    })
