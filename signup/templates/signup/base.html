@@ -16,7 +16,9 @@
     {% bootstrap_messages %}
     <div class="d-lg-flex vh-100 wh-100 position-relative">
       <div class="flex-even bg-body-secondary d-flex justify-content-center align-items-center p-4">
-        <h1>Каталог фильмов</h1>
+        <h1>
+          <a href="{% url 'films:home' %}" class="text-decoration-none text-body">Каталог фильмов</a>
+        </h1>
       </div>
       <div class="flex-even d-flex justify-content-center align-items-center p-4">
         <div class="w-75 p-4">
