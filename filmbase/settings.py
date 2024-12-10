@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'settings.apps.SettingsConfig',
     'films.apps.FilmsConfig',
 ]
 
