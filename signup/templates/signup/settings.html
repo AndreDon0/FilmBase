@@ -10,5 +10,6 @@
     <h2>Профиль</h2>
     {% bootstrap_form profile_form layout='floating' %}
     <button type="submit" class="btn btn-primary">Сохранить</button>
+    <a href="{% url 'films:home' %}" class="btn btn-primary">Вернуться на главную</a>
   </form>
 {% endblock %}
