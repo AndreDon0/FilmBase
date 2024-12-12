@@ -2,14 +2,18 @@
 {% load django_bootstrap5 %}
 
 {% block content %}
-  <h1>Настройки профиля</h1>
-  <form method="post">
+<h1>Настройки профиля</h1>
+<form method="post">
     {% csrf_token %}
     <h2>Пользователь</h2>
     {% bootstrap_form user_form layout='floating' %}
     <h2>Профиль</h2>
-    {% bootstrap_form profile_form layout='floating' %}
-    <button type="submit" class="btn btn-primary">Сохранить</button>
-    <a href="{% url 'films:home' %}" class="btn btn-primary">Вернуться на главную</a>
-  </form>
+    {% bootstrap_form settings layout='floating' %}
+    <h2>Безумные настройки</h2>
+    {% bootstrap_form crazy_settings layout='floating' %}
+    <div class="d-flex mt-3">
+        <button type="submit" class="btn btn-primary me-auto">Сохранить</button>
+        <a href="{% url 'films:home' %}" class="btn btn-outline-secondary">Вернуться на главную</a>
+    </div>
+</form>
 {% endblock %}

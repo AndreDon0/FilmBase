@@ -9,10 +9,12 @@ class UserEditForm(forms.ModelForm):
         model = User
         fields = ['first_name', 'last_name', 'email']
 
-class ProfileEditForm(forms.ModelForm):
+class ProfileSettingsForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = [
-            'preferred_language', 'theme',
-            'notifications_enabled', 'share_data'
-        ]
+        fields = ['preferred_language', 'theme', 'catalog_view']
+
+class CrazySettingsForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['font_size', 'font_family', 'kerning', 'line_spacing', 'color_scheme', 'show_images']
