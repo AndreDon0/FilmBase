@@ -9,17 +9,21 @@ class Profile(models.Model):
         ('ru', 'Русский'),
         ('en', 'English'),
     ]
-    preferred_language = models.CharField(max_length=5, choices=LANGUAGE_CHOICES, default='ru')
+    preferred_language = models.CharField(max_length=10, choices=LANGUAGE_CHOICES, default='ru')
 
     # Тема оформления
     THEME_CHOICES = [
         ('light', 'Светлая'),
         ('dark', 'Тёмная'),
     ]
-    theme = models.CharField(max_length=5, choices=THEME_CHOICES, default='light')
+    theme = models.CharField(max_length=10, choices=THEME_CHOICES, default='light')
 
     # Настройки отображения каталога
-    catalog_view = models.CharField(max_length=100, default="grid")  # grid или list
+    CONTENT_CHOICES = [
+        ('grid', 'Сетка'),
+        ('list', 'Лист'),
+    ]
+    catalog_view = models.CharField(max_length=10, choices=CONTENT_CHOICES, default="grid")
 
     # Crazy settings
     font_size = models.IntegerField(default=14)  # Размер шрифта
