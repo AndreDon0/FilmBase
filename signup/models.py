@@ -33,7 +33,6 @@ class Profile(models.Model):
     font_family = models.CharField(max_length=100, default="Arial")  # Гарнитура
     kerning = models.DecimalField(max_digits=4, decimal_places=2, default=1.0)  # Кернинг
     line_spacing = models.DecimalField(max_digits=4, decimal_places=2, default=1.5)  # Интервал
-    color_scheme = models.CharField(max_length=100, default="default")  # Схема цветов
     show_images = models.BooleanField(default=True)  # Показывать изображения
 
     def __str__(self):

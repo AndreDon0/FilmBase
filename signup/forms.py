@@ -17,4 +17,4 @@ class ProfileSettingsForm(forms.ModelForm):
 class CrazySettingsForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['font_size', 'font_family', 'kerning', 'line_spacing', 'color_scheme', 'show_images']
+        fields = ['font_size', 'font_family', 'kerning', 'line_spacing', 'show_images']
