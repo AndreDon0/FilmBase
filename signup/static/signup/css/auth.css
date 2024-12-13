@@ -1,3 +1,30 @@
 .flex-even {
     flex: 1;
 }
+
+/* Светлая тема */
+.light-theme {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Тёмная тема */
+.dark-theme {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Сетка */
+.grid-view .col-md-3 {
+    display: block;
+}
+
+/* Список */
+.list-view .col-12 {
+    display: flex;
+    align-items: center;
+}
+
+body.no-images img {
+    display: none;
+}

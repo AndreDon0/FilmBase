@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import UserEditForm, ProfileSettingsForm, CrazySettingsForm
+from django.utils.translation import activate
 
 def signup(request):
     if request.method == 'POST':
@@ -33,8 +34,11 @@ def edit_profile(request):
             user_form.save()
             settings_form.save()
             crazy_settings_form.save()
+
+            activate(profile.preferred_language)
+
             messages.success(request, "Настройки успешно сохранены.")
-            return redirect('signup:settings')  # Перезагружаем страницу
+            return redirect('signup:settings')
     else:
         user_form = UserEditForm(instance=request.user)
         settings_form = ProfileSettingsForm(instance=profile)

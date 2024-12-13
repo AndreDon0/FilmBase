@@ -12,7 +12,7 @@ class UserEditForm(forms.ModelForm):
 class ProfileSettingsForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['preferred_language', 'theme', 'catalog_view']
+        fields = ['preferred_language', 'theme', 'catalog_view', 'enable_crazy_settings']
 
 class CrazySettingsForm(forms.ModelForm):
     class Meta:

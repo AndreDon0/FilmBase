@@ -13,6 +13,7 @@ class Profile(models.Model):
 
     # Тема оформления
     THEME_CHOICES = [
+        ('As system', 'Как в системе'),
         ('light', 'Светлая'),
         ('dark', 'Тёмная'),
     ]
@@ -24,6 +25,8 @@ class Profile(models.Model):
         ('list', 'Лист'),
     ]
     catalog_view = models.CharField(max_length=10, choices=CONTENT_CHOICES, default="grid")
+
+    enable_crazy_settings = models.BooleanField(default=False)
 
     # Crazy settings
     font_size = models.IntegerField(default=14)  # Размер шрифта
