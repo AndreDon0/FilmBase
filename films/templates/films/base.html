@@ -13,7 +13,20 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   </head>
 
-  <body>
+  <body
+  class="{% if request.user.is_authenticated %} 
+            {% if request.user.profile.theme == 'dark' %}dark-theme{% else %}light-theme{% endif %}
+            {% if not request.user.profile.show_images %}no-images{% endif %}
+         {% endif %}"
+  style="
+      {% if request.user.is_authenticated and request.user.profile.enable_crazy_settings %}
+          font-size: {{ request.user.profile.font_size }}px;
+          font-family: {{ request.user.profile.font_family }};
+          letter-spacing: {{ request.user.profile.kerning }}em;
+          line-height: {{ request.user.profile.line_spacing }};
+      {% endif %}
+  "
+  >
     {% include "films/navbar.html" %}
 
     <div class="container">      

@@ -12,7 +12,20 @@
     <link rel="stylesheet" href="{% static 'signup/css/auth.css' %}" />
   </head>
 
-  <body>
+  <body
+  class="{% if request.user.is_authenticated %} 
+            {% if request.user.profile.theme == 'dark' %}dark-theme{% else %}light-theme{% endif %}
+            {% if not request.user.profile.show_images %}no-images{% endif %}
+         {% endif %}"
+  style="
+      {% if request.user.is_authenticated and request.user.profile.enable_crazy_settings %}
+          font-size: {{ request.user.profile.font_size }}px;
+          font-family: {{ request.user.profile.font_family }};
+          letter-spacing: {{ request.user.profile.kerning }}em;
+          line-height: {{ request.user.profile.line_spacing }};
+      {% endif %}
+  "
+  >
     {% bootstrap_messages %}
     <div class="d-lg-flex vh-100 wh-100 position-relative">
       <div class="flex-even bg-body-secondary d-flex justify-content-center align-items-center p-4">
