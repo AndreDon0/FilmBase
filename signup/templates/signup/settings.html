@@ -9,14 +9,10 @@
     {% bootstrap_form user_form layout='floating' %}
     <h2>Профиль</h2>
     {% bootstrap_form settings layout='floating' %}
+    {% if settings.instance.enable_crazy_settings %}
     <h2>Безумные настройки</h2>
-    <div class="row">
-        {% for field in crazy_settings %}
-        <div class="col-md-6 mb-3">
-            {% bootstrap_field field %}
-        </div>
-        {% endfor %}
-    </div>
+        {% bootstrap_form crazy_settings layout='floating' %}
+    {% endif %}
     <div class="d-flex mt-3">
         <button type="submit" class="btn btn-primary me-auto">Сохранить</button>
         <a href="{% url 'films:home' %}" class="btn btn-outline-secondary">Вернуться на главную</a>
