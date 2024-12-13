@@ -3,16 +3,16 @@
 
 {% block content %}
 <h1>Настройки профиля</h1>
-<form method="post">
+<form method="post" id="settings-form">
     {% csrf_token %}
     <h2>Пользователь</h2>
     {% bootstrap_form user_form layout='floating' %}
     <h2>Профиль</h2>
     {% bootstrap_form settings layout='floating' %}
-    {% if settings.instance.enable_crazy_settings %}
     <h2>Безумные настройки</h2>
+    <div id="crazy-settings-section" style="display: {% if settings.instance.enable_crazy_settings %}block{% else %}none{% endif %};">
         {% bootstrap_form crazy_settings layout='floating' %}
-    {% endif %}
+    </div>
     <div class="d-flex mt-3">
         <button type="submit" class="btn btn-primary me-auto">Сохранить</button>
         <a href="{% url 'films:home' %}" class="btn btn-outline-secondary">Вернуться на главную</a>
