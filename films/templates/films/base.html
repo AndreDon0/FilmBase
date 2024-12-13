@@ -16,7 +16,9 @@
   <body
   class="{% if request.user.is_authenticated %} 
             {% if request.user.profile.theme == 'dark' %}dark-theme{% else %}light-theme{% endif %}
-            {% if not request.user.profile.show_images %}no-images{% endif %}
+            {% if request.user.profile.enable_crazy_settings %}
+              {% if not request.user.profile.show_images %}no-images{% endif %}
+            {% endif %}
          {% endif %}"
   style="
       {% if request.user.is_authenticated and request.user.profile.enable_crazy_settings %}
