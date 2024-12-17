@@ -1,9 +1,9 @@
 {% load django_bootstrap5 %}
 
 {% if films %}
-    <div class="{% if request.user.profile.catalog_view == 'grid' %}row grid-view{% else %}list-view{% endif %}">
+    <div class="row {% if request.user.profile.catalog_view == 'list' %}list-view{% else %}grid-view{% endif %}">
         {% for film in films %}
-            <div class="{% if request.user.profile.catalog_view == 'grid' %}col-md-3{% else %}col-12{% endif %} py-2">
+            <div class="{% if request.user.profile.catalog_view == 'list' %}col-12{% else %}col-md-3{% endif %} py-2">
                 {% include "films/film.html" with film=film %}
             </div>
         {% endfor %}

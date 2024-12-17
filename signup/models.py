@@ -31,7 +31,7 @@ class Profile(models.Model):
     # Crazy settings
     font_size = models.IntegerField(default=14)  # Размер шрифта
     font_family = models.CharField(max_length=100, default="Arial")  # Гарнитура
-    kerning = models.DecimalField(max_digits=4, decimal_places=2, default=1.0)  # Кернинг
+    kerning = models.DecimalField(max_digits=4, decimal_places=2, default=0.0)  # Кернинг
     line_spacing = models.DecimalField(max_digits=4, decimal_places=2, default=1.5)  # Интервал
     show_images = models.BooleanField(default=True)  # Показывать изображения
 
