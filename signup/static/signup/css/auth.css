@@ -10,8 +10,129 @@
 
 /* Тёмная тема */
 .dark-theme {
-    background-color: #000000;
+    background-color: #121212;
     color: #ffffff;
+}
+
+.dark-theme input.form-control,
+.dark-theme .form-control {
+    background-color: #2c2c2c !important;
+    border: 1px solid #444 !important;
+    color: #ffffff !important;
+}
+
+.dark-theme .form-control::placeholder {
+    color: #aaaaaa !important;
+}
+
+.dark-theme .btn-primary {
+    background-color: #333333;
+    border-color: #333333;
+    color: #ffffff;
+}
+
+.dark-theme .card,
+.dark-theme .card .card-footer {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.dark-theme .bg-body-secondary {
+    background-color: #2c2c2c !important;
+    color: #ffffff !important;
+}
+
+.dark-theme .bg-body-secondary h1,
+.dark-theme .bg-body-secondary a.text-body {
+    color: #ffffff !important;
+}
+
+.dark-theme .pagination .page-link {
+    background-color: #2c2c2c !important;
+    color: #ffffff !important;
+    border: 1px solid #444444 !important;
+}
+
+.dark-theme .pagination .page-item.active .page-link {
+    background-color: #444444 !important;
+    border-color: #444444 !important;
+    color: #ffffff !important;
+}
+
+.dark-theme .pagination .page-item.disabled .page-link {
+    background-color: #2c2c2c !important;
+    color: #aaaaaa !important;
+}
+
+.dark-theme .form-label {
+    color: #444444 !important;
+}
+
+.dark-theme .form-select {
+    background-color: #2c2c2c !important;
+    border: 1px solid #444 !important;
+    color: #ffffff !important;
+}
+
+.dark-theme .form-select option {
+    background-color: #2c2c2c;
+    color: #ffffff;
+}
+
+.dark-theme .navbar,
+.dark-theme .navbar .nav-link,
+.dark-theme .navbar-brand {
+    background-color: #333333 !important;
+    color: #ffffff !important;
+}
+
+.dark-theme h1, 
+.dark-theme h2, 
+.dark-theme h3, 
+.dark-theme h4, 
+.dark-theme h5, 
+.dark-theme h6,
+.dark-theme .text-body {
+    color: #ffffff !important;
+}
+
+.dark-theme .dropdown-menu,
+.dark-theme .dropdown-menu.show {
+    background-color: #2c2c2c !important;
+    border: 1px solid #444 !important;
+    color: #ffffff !important;
+}
+
+.dark-theme .dropdown-menu .dropdown-item {
+    color: #ffffff !important;
+}
+
+.dark-theme .dropdown-menu .dropdown-item:hover,
+.dark-theme .dropdown-menu .dropdown-item:focus {
+    background-color: #444444 !important;
+    color: #ffffff !important;
+}
+
+.dark-theme .form-floating .form-control::placeholder {
+    color: transparent !important;
+}
+
+/* Системная тема */
+.system-theme {
+    
+}
+
+@media (prefers-color-scheme: dark) {
+    .system-theme {
+        background-color: #000000;
+        color: #ffffff;
+    }
+}
+@media (prefers-color-scheme: light) {
+    .system-theme {
+        background-color: #ffffff;
+        color: #000000;
+    }
 }
 
 /* Сетка */
@@ -27,4 +148,13 @@
 
 body.no-images img {
     display: none;
+}
+
+#save-message-container .alert {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}
+
+#save-message-container .alert.hidden {
+    opacity: 0;
 }

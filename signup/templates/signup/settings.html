@@ -13,9 +13,30 @@
     <div id="crazy-settings-section" style="display: {% if settings.instance.enable_crazy_settings %}block{% else %}none{% endif %};">
         {% bootstrap_form crazy_settings layout='floating' %}
     </div>
-    <div class="d-flex mt-3">
-        <button type="submit" class="btn btn-primary me-auto">Сохранить</button>
-        <a href="{% url 'films:home' %}" class="btn btn-outline-secondary">Вернуться на главную</a>
+    <div class="d-flex mt-3 align-items-center">
+        <button type="submit" class="btn btn-primary me-2">Сохранить</button>
+
+        <div id="save-message-container" class="ms-3" style="min-width: 200px; height: 38px; display: flex; align-items: center;">
+            {% for message in messages %}
+                <div class="alert alert-success mb-0 py-1 px-3" style="white-space: nowrap;">{{ message }}</div>
+            {% endfor %}
+        </div>
+    
+        <a href="{% url 'films:home' %}" class="btn btn-outline-secondary ms-auto">Вернуться на главную</a>
     </div>
 </form>
+
+<!-- Скрипт для плавного скрытия сообщений -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const msgAlerts = document.querySelectorAll("#save-message-container .alert");
+  
+  msgAlerts.forEach(alert => {
+    setTimeout(function () {
+      alert.classList.add("hidden");
+      setTimeout(() => alert.remove(), 500);
+    }, 3000);
+  });
+});
+</script>
 {% endblock %}

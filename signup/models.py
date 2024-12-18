@@ -13,11 +13,11 @@ class Profile(models.Model):
 
     # Тема оформления
     THEME_CHOICES = [
-        ('As system', 'Как в системе'),
+        ('system', 'Системная'),
         ('light', 'Светлая'),
         ('dark', 'Тёмная'),
     ]
-    theme = models.CharField(max_length=10, choices=THEME_CHOICES, default='light')
+    theme = models.CharField(max_length=10, choices=THEME_CHOICES, default='system')
 
     # Настройки отображения каталога
     CONTENT_CHOICES = [
